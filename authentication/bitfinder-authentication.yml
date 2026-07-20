@@ -1,0 +1,35 @@
+generated: '2026-07-18'
+method: searched
+source: openapi/bitfinder-awair-openapi.yml
+docs: https://docs.developer.getawair.com/
+notes: >-
+  Requests authenticate with an HTTP Bearer token in the Authorization header.
+  The token is either a Developer Console access token (obtained from the Awair
+  Developer Console, https://developer.getawair.com/) or an OAuth 2.0 access
+  token issued via the authorization-code flow for third-party apps acting on
+  behalf of Awair users. OAuth token exchange endpoint is
+  https://oauth2.awair.is/v2/token; refresh tokens are long-lived and access
+  tokens are short-lived.
+summary:
+  types:
+  - http
+  - oauth2
+  oauth2_flows:
+  - authorizationCode
+schemes:
+- name: bearerAuth
+  type: http
+  scheme: bearer
+  description: Awair Developer Console access token or OAuth 2.0 access token.
+  sources:
+  - openapi/bitfinder-awair-openapi.yml
+- name: oauth2
+  type: oauth2
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://oauth2.awair.is/v2/authorize
+    tokenUrl: https://oauth2.awair.is/v2/token
+    scopes: 0
+  description: OAuth 2.0 authorization-code flow for third-party access to Awair user data.
+  sources:
+  - openapi/bitfinder-awair-openapi.yml
