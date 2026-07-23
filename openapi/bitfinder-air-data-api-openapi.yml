@@ -1,0 +1,252 @@
+openapi: 3.1.0
+info:
+  title: Awair Home & OAuth Developer Air Data API
+  version: v1
+  description: The Awair Home & OAuth Developer API (operated by Bitfinder, Inc., d/b/a Awair) gives developers, partners, and hobbyists programmatic access to Awair indoor air quality (IAQ) devices on behalf of Awair users. It exposes the authenticated user profile, the user's registered devices, and time-series air-data readings (Awair Score plus temperature, humidity, CO2, VOC, and PM2.5) at latest, raw, 5-minute-average, and 15-minute-average granularity. Requests are authorized with an OAuth 2.0 access token (or a Developer Console access token) presented as an HTTP Bearer token.
+  contact:
+    name: Awair Developer Support
+    email: developer@getawair.com
+    url: https://docs.developer.getawair.com/
+  termsOfService: https://getawair.com/pages/legal
+  x-provenance:
+    generated: '2026-07-18'
+    method: generated
+    source: https://docs.developer.getawair.com/ ; https://support.getawair.com/hc/en-us/articles/360049982333-Using-Awair-Developer-APIs ; https://python-awair.readthedocs.io/en/latest/python_awair.html
+    note: Faithful capture of the publicly documented Awair cloud API surface. Awair does not publish an OpenAPI document; endpoints, methods, query parameters, and response fields are transcribed from the official developer docs and support articles. Response schemas are modeled from documented fields and kept minimal (no fabricated properties).
+servers:
+- url: https://developer-apis.awair.is/v1
+  description: Awair cloud developer API (production)
+security:
+- bearerAuth: []
+- oauth2: []
+tags:
+- name: Air Data
+  description: Time-series indoor air quality readings
+paths:
+  /users/self/devices/{device_type}/{device_id}/air-data/latest:
+    get:
+      operationId: getLatestAirData
+      summary: Get the latest air-data reading
+      description: Returns the most recent air-data sample for the device.
+      tags:
+      - Air Data
+      parameters:
+      - $ref: '#/components/parameters/DeviceType'
+      - $ref: '#/components/parameters/DeviceId'
+      - $ref: '#/components/parameters/Fahrenheit'
+      responses:
+        '200':
+          description: The latest air-data reading.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AirDataResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/QuotaExceeded'
+  /users/self/devices/{device_type}/{device_id}/air-data/raw:
+    get:
+      operationId: getRawAirData
+      summary: Get raw (per-second) air-data
+      description: Returns raw air-data samples. Maximum queryable window is 1 hour; up to 360 records per request.
+      tags:
+      - Air Data
+      parameters:
+      - $ref: '#/components/parameters/DeviceType'
+      - $ref: '#/components/parameters/DeviceId'
+      - $ref: '#/components/parameters/From'
+      - $ref: '#/components/parameters/To'
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Desc'
+      - $ref: '#/components/parameters/Fahrenheit'
+      responses:
+        '200':
+          description: Raw air-data readings.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AirDataResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/QuotaExceeded'
+  /users/self/devices/{device_type}/{device_id}/air-data/5-min-avg:
+    get:
+      operationId: get5MinAvgAirData
+      summary: Get 5-minute-average air-data
+      description: Returns air-data averaged over 5-minute buckets. Maximum queryable window is 24 hours.
+      tags:
+      - Air Data
+      parameters:
+      - $ref: '#/components/parameters/DeviceType'
+      - $ref: '#/components/parameters/DeviceId'
+      - $ref: '#/components/parameters/From'
+      - $ref: '#/components/parameters/To'
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Desc'
+      - $ref: '#/components/parameters/Fahrenheit'
+      responses:
+        '200':
+          description: 5-minute-average air-data readings.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AirDataResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/QuotaExceeded'
+  /users/self/devices/{device_type}/{device_id}/air-data/15-min-avg:
+    get:
+      operationId: get15MinAvgAirData
+      summary: Get 15-minute-average air-data
+      description: Returns air-data averaged over 15-minute buckets. Maximum queryable window is 7 days.
+      tags:
+      - Air Data
+      parameters:
+      - $ref: '#/components/parameters/DeviceType'
+      - $ref: '#/components/parameters/DeviceId'
+      - $ref: '#/components/parameters/From'
+      - $ref: '#/components/parameters/To'
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Desc'
+      - $ref: '#/components/parameters/Fahrenheit'
+      responses:
+        '200':
+          description: 15-minute-average air-data readings.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AirDataResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/QuotaExceeded'
+components:
+  schemas:
+    SensorReading:
+      type: object
+      properties:
+        comp:
+          type: string
+          description: Component name (temp, humid, co2, voc, pm25).
+        value:
+          type: number
+    AirDataPoint:
+      type: object
+      description: A single air-data sample.
+      properties:
+        timestamp:
+          type: string
+          format: date-time
+        score:
+          type: number
+          description: Awair Score (0-100).
+        sensors:
+          type: array
+          items:
+            $ref: '#/components/schemas/SensorReading'
+        indices:
+          type: array
+          items:
+            $ref: '#/components/schemas/SensorReading'
+    AirDataResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/AirDataPoint'
+  parameters:
+    DeviceType:
+      name: device_type
+      in: path
+      required: true
+      description: Device model type (e.g. awair-element, awair-omni, awair-r2).
+      schema:
+        type: string
+    From:
+      name: from
+      in: query
+      required: false
+      description: Start of the time window (ISO 8601).
+      schema:
+        type: string
+        format: date-time
+    Limit:
+      name: limit
+      in: query
+      required: false
+      description: Maximum number of records to return (raw max 360).
+      schema:
+        type: integer
+    To:
+      name: to
+      in: query
+      required: false
+      description: End of the time window (ISO 8601).
+      schema:
+        type: string
+        format: date-time
+    DeviceId:
+      name: device_id
+      in: path
+      required: true
+      description: Numeric device identifier.
+      schema:
+        type: integer
+    Fahrenheit:
+      name: fahrenheit
+      in: query
+      required: false
+      description: Return temperature in Fahrenheit instead of Celsius.
+      schema:
+        type: boolean
+        default: false
+    Desc:
+      name: desc
+      in: query
+      required: false
+      description: Sort descending by timestamp (default true).
+      schema:
+        type: boolean
+        default: true
+  responses:
+    Unauthorized:
+      description: Missing or invalid access token.
+    NotFound:
+      description: Device or resource not found.
+    QuotaExceeded:
+      description: Per-device daily quota for this endpoint/tier has been exceeded.
+    Forbidden:
+      description: The token is not permitted to access this device or resource.
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: Awair Developer Console access token or OAuth 2.0 access token.
+    oauth2:
+      type: oauth2
+      description: OAuth 2.0 authorization-code flow for third-party access to Awair user data.
+      flows:
+        authorizationCode:
+          authorizationUrl: https://oauth2.awair.is/v2/authorize
+          tokenUrl: https://oauth2.awair.is/v2/token
+          scopes: {}
