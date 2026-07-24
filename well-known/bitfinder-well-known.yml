@@ -1,0 +1,24 @@
+generated: '2026-07-18'
+method: searched
+hosts:
+  - host: https://developer-apis.awair.is
+    documents:
+      - path: /.well-known/security.txt
+        status: 401
+      - path: /.well-known/oauth-authorization-server
+        status: 401
+      - path: /.well-known/openid-configuration
+        status: 401
+      - path: /.well-known/api-catalog
+        status: 401
+  - host: https://getawair.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+notes: >-
+  No public /.well-known discovery documents are published. The API host
+  (developer-apis.awair.is) returns 401 for /.well-known paths (behind the
+  auth wall); the marketing host (getawair.com) returns 404. No 200 documents
+  were captured.

@@ -1,0 +1,47 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.developer.getawair.com/
+cross_links:
+  errors: errors/bitfinder-problem-types.yml
+  lifecycle: lifecycle/bitfinder-lifecycle.yml
+  authentication: authentication/bitfinder-authentication.yml
+  rate_limits: rate-limits/bitfinder-rate-limits.yml
+authentication:
+  style: bearer-token
+  header: Authorization
+  scheme: Bearer
+  oauth2: authorization-code
+  notes: Developer Console access token or OAuth 2.0 access token.
+versioning:
+  style: uri-path
+  current: v1
+  base_url: https://developer-apis.awair.is/v1
+pagination:
+  style: time-window
+  params:
+    - from
+    - to
+    - limit
+    - desc
+  notes: >-
+    Air-data endpoints are paginated by a bounded time window (from/to) plus a
+    limit and sort direction (desc, default true). Raw returns up to 360 records
+    per request over a maximum 1-hour window; 5-min-avg spans up to 24 hours;
+    15-min-avg spans up to 7 days.
+  response_field: data
+idempotency:
+  supported: false
+  notes: >-
+    The public developer API is read-only (GET only) — user profile, device
+    list, and air-data reads — so there is no write-idempotency contract. No
+    Idempotency-Key header is documented.
+rate_limiting:
+  scope: per-device-per-day
+  signal: HTTP 429 on quota exhaustion
+  details: rate-limits/bitfinder-rate-limits.yml
+units:
+  temperature: Celsius by default; pass fahrenheit=true for Fahrenheit.
+  timestamps: ISO 8601 UTC.
+error_envelope:
+  format: json
+  notes: See errors/bitfinder-problem-types.yml for documented status codes.

@@ -1,0 +1,19 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Awair Home & OAuth Developer API
+  version: 1.0.0
+extends: openapi/bitfinder-awair-openapi.yml
+actions:
+  - target: $.info
+    update:
+      x-apievangelist-provider: bitfinder
+      x-apievangelist-category: internet-of-things
+      x-apievangelist-review-date: '2026-07-18'
+  - target: $.info
+    update:
+      x-status-page: https://status.getawair.com/
+      x-developer-console: https://developer.getawair.com/
+  - target: $.tags
+    update:
+      - name: Air Quality
+        description: Indoor air quality monitoring (Awair Score, temp, humidity, CO2, VOC, PM2.5).

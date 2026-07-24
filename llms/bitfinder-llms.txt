@@ -1,0 +1,30 @@
+# Awair (Bitfinder, Inc.)
+
+> Bitfinder, Inc., d/b/a Awair, builds indoor air quality (IAQ) monitors (Awair Element, Awair Omni) and a cloud platform. The Awair Home & OAuth Developer API gives developers programmatic, OAuth-authorized access to a user's devices and their air-data (Awair Score plus temperature, humidity, CO2, VOC, and PM2.5) at latest, raw, 5-minute-average, and 15-minute-average granularity.
+
+## APIs
+- [Awair Home & OAuth Developer API](https://docs.developer.getawair.com/): Cloud API at https://developer-apis.awair.is/v1 — user profile, devices, air-data.
+- [OpenAPI (API Evangelist capture)](openapi/bitfinder-awair-openapi.yml)
+
+## Docs
+- [Developer API documentation](https://docs.developer.getawair.com/)
+- [Enterprise Dashboard API documentation](https://docs.dashboard.getawair.com/)
+- [Using Awair Developer APIs (support)](https://support.getawair.com/hc/en-us/articles/360049982333-Using-Awair-Developer-APIs)
+- [Developer Console](https://developer.getawair.com/)
+- [Terms & legal](https://getawair.com/pages/legal)
+- [Status page](https://status.getawair.com/)
+
+## Auth
+- OAuth 2.0 authorization-code flow; token endpoint https://oauth2.awair.is/v2/token
+- HTTP Bearer token in the Authorization header (Developer Console or OAuth token)
+- [Authentication profile](authentication/bitfinder-authentication.yml)
+
+## Specs & artifacts
+- [Conventions](conventions/bitfinder-conventions.yml)
+- [Error / status codes](errors/bitfinder-problem-types.yml)
+- [Rate limits](rate-limits/bitfinder-rate-limits.yml)
+- [Lifecycle](lifecycle/bitfinder-lifecycle.yml)
+- [Data model](data-model/bitfinder-data-model.yml)
+- [Conformance](conformance/bitfinder-conformance.yml)
+- [MCP candidate tools](mcp/bitfinder-mcp.yml)
+- [Agent skills](skills/_index.yml)

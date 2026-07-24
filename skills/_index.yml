@@ -1,0 +1,11 @@
+generated: '2026-07-18'
+method: generated
+skills:
+  - file: bitfinder-read-latest-air-quality.md
+    name: Read latest Awair air quality
+    api: openapi/bitfinder-awair-openapi.yml
+    operations: [getUserInfo, listDevices, getLatestAirData]
+  - file: bitfinder-fetch-air-data-history.md
+    name: Fetch Awair air-data history
+    api: openapi/bitfinder-awair-openapi.yml
+    operations: [listDevices, getRawAirData, get5MinAvgAirData, get15MinAvgAirData]

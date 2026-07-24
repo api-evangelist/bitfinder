@@ -1,0 +1,33 @@
+generated: '2026-07-18'
+method: derived
+source: openapi/bitfinder-awair-openapi.yml
+format: http-status
+notes: >-
+  Awair does not publish an RFC 9457 problem+json error registry; these are the
+  HTTP status codes documented for the developer API endpoints, derived from the
+  captured OpenAPI responses.
+problems:
+  - status: 401
+    title: Unauthorized
+    description: Missing or invalid access token.
+    remediation: >-
+      Present a valid Bearer token (Developer Console token or a fresh OAuth 2.0
+      access token) in the Authorization header; refresh the token if expired.
+    source_operation: openapi/bitfinder-awair-openapi.yml#getUserInfo
+  - status: 403
+    title: Forbidden
+    description: The token is not permitted to access this device or resource.
+    remediation: Ensure the authenticated user owns the device and the token scope permits access.
+    source_operation: openapi/bitfinder-awair-openapi.yml#getLatestAirData
+  - status: 404
+    title: Not Found
+    description: Device or resource not found.
+    remediation: Verify device_type and device_id against the list-devices response.
+    source_operation: openapi/bitfinder-awair-openapi.yml#getLatestAirData
+  - status: 429
+    title: Quota Exceeded
+    description: The per-device daily quota for this endpoint and tier has been exceeded.
+    remediation: >-
+      Back off until the daily quota resets, reduce polling frequency, or request
+      a higher Developer Console tier. See rate-limits/bitfinder-rate-limits.yml.
+    source_operation: openapi/bitfinder-awair-openapi.yml#getRawAirData

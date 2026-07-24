@@ -1,0 +1,33 @@
+generated: '2026-07-18'
+method: searched
+source: >-
+  https://github.com/getawair ; https://pypi.org/project/python-awair/ ;
+  https://python-awair.readthedocs.io/
+notes: >-
+  Awair (Bitfinder) publishes no first-party client SDK. Its GitHub org
+  (github.com/getawair) has no public repositories. A healthy community of
+  third-party libraries wraps the developer API; the most established are listed
+  below with official:false. No official SDK pointer (type: SDKs) is emitted
+  because none are first-party.
+packages:
+  - language: python
+    registry: pypi
+    name: python-awair
+    url: https://pypi.org/project/python-awair/
+    install: pip install python-awair
+    official: false
+    notes: Community async client; powers the Home Assistant Awair integration.
+  - language: python
+    registry: pypi
+    name: pyawair
+    url: https://pypi.org/project/pyawair/
+    install: pip install pyawair
+    official: false
+    notes: Community Python wrapper for the Awair cloud API.
+  - language: javascript
+    registry: npm
+    name: homebridge-awair2
+    url: https://www.npmjs.com/package/homebridge-awair2
+    install: npm install homebridge-awair2
+    official: false
+    notes: Community Homebridge (HomeKit) plugin using the Awair cloud and local APIs.

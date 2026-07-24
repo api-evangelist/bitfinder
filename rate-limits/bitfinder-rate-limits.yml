@@ -1,0 +1,28 @@
+generated: '2026-07-18'
+method: searched
+source: https://support.getawair.com/hc/en-us/articles/360049982333-Using-Awair-Developer-APIs
+docs: https://docs.developer.getawair.com/
+model: >-
+  The Awair Developer API meters air-data endpoints per device, per day, and the
+  quota depends on the account tier assigned in the Developer Console. The
+  default tier is Hobbyist (free). Higher tiers are available on request. When a
+  per-device daily quota is exhausted the API returns HTTP 429.
+scope: per-device-per-day
+tiers:
+  - name: Hobbyist
+    default: true
+    price: free
+rate_limits:
+  - endpoint: /users/self/devices/{device_type}/{device_id}/air-data/latest
+    tier: Hobbyist
+    limit_count: 300
+    window: per-device-per-day
+  - endpoint: /users/self/devices/{device_type}/{device_id}/air-data/raw
+    tier: Hobbyist
+    limit_count: 500
+    window: per-device-per-day
+notes: >-
+  The 5-min-avg and 15-min-avg air-data endpoints also carry per-device daily
+  quotas whose values vary by tier (see the Developer Console quota table);
+  exact non-Hobbyist values are not published verbatim and are not reproduced
+  here.

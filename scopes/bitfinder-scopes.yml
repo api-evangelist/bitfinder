@@ -1,0 +1,12 @@
+generated: '2026-07-18'
+method: derived
+source: openapi/bitfinder-awair-openapi.yml
+schemes:
+- name: oauth2
+  source: openapi/bitfinder-awair-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://oauth2.awair.is/v2/authorize
+    tokenUrl: https://oauth2.awair.is/v2/token
+  description: OAuth 2.0 authorization-code flow for third-party access to Awair user data.
+scopes: []

@@ -1,0 +1,22 @@
+generated: '2026-07-18'
+method: derived
+source: openapi/bitfinder-awair-openapi.yml
+standards:
+  - id: oauth2
+    conforms: true
+    evidence: OpenAPI securitySchemes declare an oauth2 authorization-code flow (oauth2.awair.is/v2/token).
+  - id: oauth2-bearer
+    conforms: true
+    evidence: HTTP bearer token in the Authorization header.
+  - id: rest
+    conforms: true
+    evidence: Resource-oriented JSON over HTTPS with uri-path versioning (/v1).
+  - id: oidc
+    conforms: false
+    evidence: No OpenID Connect discovery or id_token documented.
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: Errors are plain HTTP status codes; no application/problem+json documented.
+  - id: rfc8594-sunset
+    conforms: false
+    evidence: No Sunset/Deprecation header support documented.

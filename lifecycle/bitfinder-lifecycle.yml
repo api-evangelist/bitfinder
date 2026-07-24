@@ -1,0 +1,15 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.developer.getawair.com/
+versioning:
+  scheme: uri-path
+  current: v1
+  docs: https://docs.developer.getawair.com/
+status_page: https://status.getawair.com/
+deprecation:
+  policy_url: null
+  sunset_header: false
+  notes: No formal deprecation policy or RFC 8594 Sunset/Deprecation header support is documented.
+sla:
+  url: null
+deprecated_operations: []

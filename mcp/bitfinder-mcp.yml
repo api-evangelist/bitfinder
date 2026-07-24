@@ -1,0 +1,30 @@
+generated: '2026-07-18'
+method: derived
+status: candidate
+source: openapi/bitfinder-awair-openapi.yml
+notes: >-
+  Awair publishes no official hosted/remote MCP server. This is a candidate tool
+  list derived one-to-one from the documented developer API operations; not an
+  endorsed server.
+server:
+  name: bitfinder-awair
+  transport: stdio
+tools:
+  - name: get_user_info
+    description: Get the authenticated Awair user's profile and tier.
+    source_operation: openapi/bitfinder-awair-openapi.yml#getUserInfo
+  - name: list_devices
+    description: List the Awair devices registered to the authenticated user.
+    source_operation: openapi/bitfinder-awair-openapi.yml#listDevices
+  - name: get_latest_air_data
+    description: Get the most recent air-data reading for a device.
+    source_operation: openapi/bitfinder-awair-openapi.yml#getLatestAirData
+  - name: get_raw_air_data
+    description: Get raw per-second air-data for a device (max 1 hour, 360 records).
+    source_operation: openapi/bitfinder-awair-openapi.yml#getRawAirData
+  - name: get_5min_avg_air_data
+    description: Get 5-minute-average air-data for a device (max 24 hours).
+    source_operation: openapi/bitfinder-awair-openapi.yml#get5MinAvgAirData
+  - name: get_15min_avg_air_data
+    description: Get 15-minute-average air-data for a device (max 7 days).
+    source_operation: openapi/bitfinder-awair-openapi.yml#get15MinAvgAirData

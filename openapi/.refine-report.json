@@ -1,0 +1,18 @@
+{
+  "provider": "bitfinder",
+  "sources": [
+    "bitfinder-air-data-api-openapi.yml",
+    "bitfinder-devices-api-openapi.yml",
+    "bitfinder-user-api-openapi.yml"
+  ],
+  "outputs": [
+    "bitfinder-air-data-api-openapi.yml",
+    "bitfinder-devices-api-openapi.yml",
+    "bitfinder-user-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

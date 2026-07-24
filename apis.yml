@@ -1,7 +1,15 @@
 aid: bitfinder
 name: Bitfinder
-description: Bitfinder is a company surfaced as a portfolio company of techstars and added to the API
-  Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  Bitfinder, Inc., doing business as Awair, builds indoor air quality (IAQ)
+  monitors and a cloud platform used across homes, offices, schools, and
+  commercial spaces. Its devices (Awair Element, Awair Omni, and 2nd Edition)
+  measure the Awair Score along with temperature, humidity, CO2, chemicals
+  (VOC), and fine dust (PM2.5). The Awair Home & OAuth Developer API lets
+  developers, partners, and hobbyists read a user's registered devices and their
+  air-data time series (latest, raw per-second, 5-minute-average, and
+  15-minute-average) on behalf of Awair users, authorized with an OAuth 2.0 or
+  Developer Console Bearer token. Bitfinder was a Techstars portfolio company.
 url: https://raw.githubusercontent.com/api-evangelist/bitfinder/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -9,12 +17,69 @@ x-backed-by:
 - techstars
 x-tier: stub
 x-tier-reason: portfolio-lead
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-18'
+image: https://cdn.prod.website-files.com/606ca67e54e3f68fa1be1f6b/652df95bec0aa957aba241bd_Frame%201060.png
 tags:
 - Company
-apis: []
+- Air Quality
+- Internet of Things
+- IoT
+- Environmental Monitoring
+- Smart Home
+- Sensors
+- Health
+- Developer API
+apis:
+- aid: bitfinder:bitfinder-air-data-api
+  name: Bitfinder Air Data API
+  description: Time-series indoor air quality readings
+  humanURL: https://docs.developer.getawair.com/
+  baseURL: https://developer-apis.awair.is/v1
+  tags:
+  - Air Data
+  properties:
+  - type: OpenAPI
+    url: openapi/bitfinder-air-data-api-openapi.yml
+  - type: Documentation
+    url: https://docs.developer.getawair.com/
+- aid: bitfinder:bitfinder-devices-api
+  name: Bitfinder Devices API
+  description: Devices registered to the authenticated user
+  humanURL: https://docs.developer.getawair.com/
+  baseURL: https://developer-apis.awair.is/v1
+  tags:
+  - Devices
+  properties:
+  - type: OpenAPI
+    url: openapi/bitfinder-devices-api-openapi.yml
+  - type: Documentation
+    url: https://docs.developer.getawair.com/
+- aid: bitfinder:bitfinder-user-api
+  name: Bitfinder User API
+  description: Authenticated Awair user profile
+  humanURL: https://docs.developer.getawair.com/
+  baseURL: https://developer-apis.awair.is/v1
+  tags:
+  - User
+  properties:
+  - type: OpenAPI
+    url: openapi/bitfinder-user-api-openapi.yml
+  - type: Documentation
+    url: https://docs.developer.getawair.com/
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -23,3 +88,62 @@ maintainers:
 common:
 - type: Website
   url: https://getawair.com/
+- type: DeveloperPortal
+  url: https://developer.getawair.com/
+- type: Documentation
+  url: https://docs.developer.getawair.com/
+- type: APIReference
+  url: https://docs.developer.getawair.com/
+- type: GettingStarted
+  url: https://support.getawair.com/hc/en-us/articles/360049982333-Using-Awair-Developer-APIs
+- type: Support
+  url: https://support.getawair.com/hc/en-us
+- type: Blog
+  url: https://www.getawair.com/authors/awair
+- type: GitHubOrganization
+  url: https://github.com/getawair
+- type: StatusPage
+  url: https://status.getawair.com/
+- type: SignUp
+  url: https://developer.getawair.com/
+- type: TermsOfService
+  url: https://getawair.com/pages/legal
+- type: PrivacyPolicy
+  url: https://getawair.com/pages/legal
+- type: Authentication
+  url: authentication/bitfinder-authentication.yml
+- type: OAuthScopes
+  url: scopes/bitfinder-scopes.yml
+- type: AgenticAccess
+  url: agentic-access/bitfinder-agentic-access.yml
+- type: DomainSecurity
+  url: security/bitfinder-domain-security.yml
+- type: Conventions
+  url: conventions/bitfinder-conventions.yml
+- type: RateLimits
+  url: rate-limits/bitfinder-rate-limits.yml
+- type: ErrorCatalog
+  url: errors/bitfinder-problem-types.yml
+- type: Lifecycle
+  url: lifecycle/bitfinder-lifecycle.yml
+- type: Conformance
+  url: conformance/bitfinder-conformance.yml
+- type: DataModel
+  url: data-model/bitfinder-data-model.yml
+- type: Packages
+  url: packages/bitfinder-packages.yml
+- type: WellKnown
+  url: well-known/bitfinder-well-known.yml
+- type: MCPServer
+  url: mcp/bitfinder-mcp.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: LLMsTxt
+  url: llms/bitfinder-llms.txt
+- type: Overlay
+  url: overlays/bitfinder-awair-overlay.yaml
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence

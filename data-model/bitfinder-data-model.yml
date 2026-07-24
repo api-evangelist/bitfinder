@@ -1,0 +1,32 @@
+generated: '2026-07-18'
+method: derived
+source: openapi/bitfinder-awair-openapi.yml
+entities:
+  - name: User
+    id_field: id
+    description: The authenticated Awair account.
+  - name: Device
+    id_field: deviceId
+    description: An Awair IAQ device (Element, Omni, 2nd Edition, etc.) registered to a user.
+  - name: AirDataPoint
+    id_field: timestamp
+    description: A time-stamped air-quality sample (Awair Score + sensor components).
+  - name: SensorReading
+    description: One sensor component value (temp, humid, co2, voc, pm25) within an AirDataPoint.
+relationships:
+  - from: User
+    to: Device
+    type: has_many
+    via: devices
+  - from: Device
+    to: User
+    type: belongs_to
+    via: user
+  - from: Device
+    to: AirDataPoint
+    type: has_many
+    via: air-data
+  - from: AirDataPoint
+    to: SensorReading
+    type: has_many
+    via: sensors
