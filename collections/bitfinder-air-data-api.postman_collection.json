@@ -1,0 +1,1921 @@
+{
+  "item": [
+    {
+      "id": "5ad818f3-399c-4327-8351-fdafe89a260a",
+      "name": "Air Data",
+      "description": {
+        "content": "Time-series indoor air quality readings",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8ea8488b-4faa-4e21-8396-a584c650f929",
+          "name": "Get the latest air-data reading",
+          "request": {
+            "name": "Get the latest air-data reading",
+            "description": {
+              "content": "Returns the most recent air-data sample for the device.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users",
+                "self",
+                "devices",
+                ":device_type",
+                ":device_id",
+                "air-data",
+                "latest"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "fahrenheit",
+                  "value": "false",
+                  "description": "Return temperature in Fahrenheit instead of Celsius."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "device_type",
+                  "description": "(Required) Device model type (e.g. awair-element, awair-omni, awair-r2)."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "device_id",
+                  "description": "(Required) Numeric device identifier."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5bc55dde-7ea2-4cc3-b4ce-f71d67fc53d7",
+              "name": "The latest air-data reading.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "self",
+                    "devices",
+                    ":device_type",
+                    ":device_id",
+                    "air-data",
+                    "latest"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fahrenheit",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "device_type",
+                      "description": "(Required) Device model type (e.g. awair-element, awair-omni, awair-r2)."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "device_id",
+                      "description": "(Required) Numeric device identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"timestamp\": \"2018-09-14T23:47:22.334Z\",\n      \"score\": 2097.9107938602483,\n      \"sensors\": [\n        {\n          \"comp\": \"string\",\n          \"value\": 7302.735007496765\n        },\n        {\n          \"comp\": \"string\",\n          \"value\": 6385.984416768098\n        }\n      ],\n      \"indices\": [\n        {\n          \"comp\": \"string\",\n          \"value\": 1162.443600937485\n        },\n        {\n          \"comp\": \"string\",\n          \"value\": 2898.27176855894\n        }\n      ]\n    },\n    {\n      \"timestamp\": \"1976-11-05T10:34:29.309Z\",\n      \"score\": 8860.358642160418,\n      \"sensors\": [\n        {\n          \"comp\": \"string\",\n          \"value\": 8205.610290815579\n        },\n        {\n          \"comp\": \"string\",\n          \"value\": 4595.250797679462\n        }\n      ],\n      \"indices\": [\n        {\n          \"comp\": \"string\",\n          \"value\": 791.9733586811018\n        },\n        {\n          \"comp\": \"string\",\n          \"value\": 1023.5648563268751\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9b00cb2e-b509-4668-9b52-3fb079e55469",
+              "name": "Missing or invalid access token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "self",
+                    "devices",
+                    ":device_type",
+                    ":device_id",
+                    "air-data",
+                    "latest"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fahrenheit",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "device_type",
+                      "description": "(Required) Device model type (e.g. awair-element, awair-omni, awair-r2)."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "device_id",
+                      "description": "(Required) Numeric device identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e3e63573-a9c1-4c18-b2af-66e7a35509e6",
+              "name": "The token is not permitted to access this device or resource.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "self",
+                    "devices",
+                    ":device_type",
+                    ":device_id",
+                    "air-data",
+                    "latest"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fahrenheit",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "device_type",
+                      "description": "(Required) Device model type (e.g. awair-element, awair-omni, awair-r2)."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "device_id",
+                      "description": "(Required) Numeric device identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ab534a91-91a3-4e84-bfbf-0498007cd7e7",
+              "name": "Device or resource not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "self",
+                    "devices",
+                    ":device_type",
+                    ":device_id",
+                    "air-data",
+                    "latest"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fahrenheit",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "device_type",
+                      "description": "(Required) Device model type (e.g. awair-element, awair-omni, awair-r2)."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "device_id",
+                      "description": "(Required) Numeric device identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6e524673-e42d-48bf-9f52-b3238cf72d84",
+              "name": "Per-device daily quota for this endpoint/tier has been exceeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "self",
+                    "devices",
+                    ":device_type",
+                    ":device_id",
+                    "air-data",
+                    "latest"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fahrenheit",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "device_type",
+                      "description": "(Required) Device model type (e.g. awair-element, awair-omni, awair-r2)."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "device_id",
+                      "description": "(Required) Numeric device identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0e3161a6-7529-462e-b1c0-cec280e37f0a",
+          "name": "Get raw (per-second) air-data",
+          "request": {
+            "name": "Get raw (per-second) air-data",
+            "description": {
+              "content": "Returns raw air-data samples. Maximum queryable window is 1 hour; up to 360 records per request.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users",
+                "self",
+                "devices",
+                ":device_type",
+                ":device_id",
+                "air-data",
+                "raw"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<dateTime>",
+                  "description": "Start of the time window (ISO 8601)."
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<dateTime>",
+                  "description": "End of the time window (ISO 8601)."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Maximum number of records to return (raw max 360)."
+                },
+                {
+                  "disabled": false,
+                  "key": "desc",
+                  "value": "true",
+                  "description": "Sort descending by timestamp (default true)."
+                },
+                {
+                  "disabled": false,
+                  "key": "fahrenheit",
+                  "value": "false",
+                  "description": "Return temperature in Fahrenheit instead of Celsius."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "device_type",
+                  "description": "(Required) Device model type (e.g. awair-element, awair-omni, awair-r2)."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "device_id",
+                  "description": "(Required) Numeric device identifier."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "89cac319-6ca5-4f8e-8198-eabf018edeab",
+              "name": "Raw air-data readings.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "self",
+                    "devices",
+                    ":device_type",
+                    ":device_id",
+                    "air-data",
+                    "raw"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "desc",
+                      "value": "true"
+                    },
+                    {
+                      "key": "fahrenheit",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "device_type",
+                      "description": "(Required) Device model type (e.g. awair-element, awair-omni, awair-r2)."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "device_id",
+                      "description": "(Required) Numeric device identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"timestamp\": \"2018-09-14T23:47:22.334Z\",\n      \"score\": 2097.9107938602483,\n      \"sensors\": [\n        {\n          \"comp\": \"string\",\n          \"value\": 7302.735007496765\n        },\n        {\n          \"comp\": \"string\",\n          \"value\": 6385.984416768098\n        }\n      ],\n      \"indices\": [\n        {\n          \"comp\": \"string\",\n          \"value\": 1162.443600937485\n        },\n        {\n          \"comp\": \"string\",\n          \"value\": 2898.27176855894\n        }\n      ]\n    },\n    {\n      \"timestamp\": \"1976-11-05T10:34:29.309Z\",\n      \"score\": 8860.358642160418,\n      \"sensors\": [\n        {\n          \"comp\": \"string\",\n          \"value\": 8205.610290815579\n        },\n        {\n          \"comp\": \"string\",\n          \"value\": 4595.250797679462\n        }\n      ],\n      \"indices\": [\n        {\n          \"comp\": \"string\",\n          \"value\": 791.9733586811018\n        },\n        {\n          \"comp\": \"string\",\n          \"value\": 1023.5648563268751\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d06c6575-af06-4676-9fcf-4e82612678ca",
+              "name": "Missing or invalid access token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "self",
+                    "devices",
+                    ":device_type",
+                    ":device_id",
+                    "air-data",
+                    "raw"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "desc",
+                      "value": "true"
+                    },
+                    {
+                      "key": "fahrenheit",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "device_type",
+                      "description": "(Required) Device model type (e.g. awair-element, awair-omni, awair-r2)."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "device_id",
+                      "description": "(Required) Numeric device identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "bd3b80e2-9f93-4d80-ab06-1fe3ae39c65c",
+              "name": "The token is not permitted to access this device or resource.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "self",
+                    "devices",
+                    ":device_type",
+                    ":device_id",
+                    "air-data",
+                    "raw"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "desc",
+                      "value": "true"
+                    },
+                    {
+                      "key": "fahrenheit",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "device_type",
+                      "description": "(Required) Device model type (e.g. awair-element, awair-omni, awair-r2)."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "device_id",
+                      "description": "(Required) Numeric device identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a92f3a5d-39ca-4669-abb9-fad106ed8c09",
+              "name": "Device or resource not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "self",
+                    "devices",
+                    ":device_type",
+                    ":device_id",
+                    "air-data",
+                    "raw"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "desc",
+                      "value": "true"
+                    },
+                    {
+                      "key": "fahrenheit",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "device_type",
+                      "description": "(Required) Device model type (e.g. awair-element, awair-omni, awair-r2)."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "device_id",
+                      "description": "(Required) Numeric device identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9bf23951-966c-4ada-b4a5-99f017eb5f74",
+              "name": "Per-device daily quota for this endpoint/tier has been exceeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "self",
+                    "devices",
+                    ":device_type",
+                    ":device_id",
+                    "air-data",
+                    "raw"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "desc",
+                      "value": "true"
+                    },
+                    {
+                      "key": "fahrenheit",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "device_type",
+                      "description": "(Required) Device model type (e.g. awair-element, awair-omni, awair-r2)."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "device_id",
+                      "description": "(Required) Numeric device identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "845553b0-173b-44cc-97f5-e05fb51c91db",
+          "name": "Get 5-minute-average air-data",
+          "request": {
+            "name": "Get 5-minute-average air-data",
+            "description": {
+              "content": "Returns air-data averaged over 5-minute buckets. Maximum queryable window is 24 hours.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users",
+                "self",
+                "devices",
+                ":device_type",
+                ":device_id",
+                "air-data",
+                "5-min-avg"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<dateTime>",
+                  "description": "Start of the time window (ISO 8601)."
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<dateTime>",
+                  "description": "End of the time window (ISO 8601)."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Maximum number of records to return (raw max 360)."
+                },
+                {
+                  "disabled": false,
+                  "key": "desc",
+                  "value": "true",
+                  "description": "Sort descending by timestamp (default true)."
+                },
+                {
+                  "disabled": false,
+                  "key": "fahrenheit",
+                  "value": "false",
+                  "description": "Return temperature in Fahrenheit instead of Celsius."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "device_type",
+                  "description": "(Required) Device model type (e.g. awair-element, awair-omni, awair-r2)."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "device_id",
+                  "description": "(Required) Numeric device identifier."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9dc4aeed-2fea-4847-bdd5-f0428e263ce1",
+              "name": "5-minute-average air-data readings.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "self",
+                    "devices",
+                    ":device_type",
+                    ":device_id",
+                    "air-data",
+                    "5-min-avg"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "desc",
+                      "value": "true"
+                    },
+                    {
+                      "key": "fahrenheit",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "device_type",
+                      "description": "(Required) Device model type (e.g. awair-element, awair-omni, awair-r2)."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "device_id",
+                      "description": "(Required) Numeric device identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"timestamp\": \"2018-09-14T23:47:22.334Z\",\n      \"score\": 2097.9107938602483,\n      \"sensors\": [\n        {\n          \"comp\": \"string\",\n          \"value\": 7302.735007496765\n        },\n        {\n          \"comp\": \"string\",\n          \"value\": 6385.984416768098\n        }\n      ],\n      \"indices\": [\n        {\n          \"comp\": \"string\",\n          \"value\": 1162.443600937485\n        },\n        {\n          \"comp\": \"string\",\n          \"value\": 2898.27176855894\n        }\n      ]\n    },\n    {\n      \"timestamp\": \"1976-11-05T10:34:29.309Z\",\n      \"score\": 8860.358642160418,\n      \"sensors\": [\n        {\n          \"comp\": \"string\",\n          \"value\": 8205.610290815579\n        },\n        {\n          \"comp\": \"string\",\n          \"value\": 4595.250797679462\n        }\n      ],\n      \"indices\": [\n        {\n          \"comp\": \"string\",\n          \"value\": 791.9733586811018\n        },\n        {\n          \"comp\": \"string\",\n          \"value\": 1023.5648563268751\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ddb1bfc8-cfeb-4d13-bca7-ca988e7daff9",
+              "name": "Missing or invalid access token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "self",
+                    "devices",
+                    ":device_type",
+                    ":device_id",
+                    "air-data",
+                    "5-min-avg"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "desc",
+                      "value": "true"
+                    },
+                    {
+                      "key": "fahrenheit",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "device_type",
+                      "description": "(Required) Device model type (e.g. awair-element, awair-omni, awair-r2)."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "device_id",
+                      "description": "(Required) Numeric device identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5c87c893-60ee-425c-825c-f2a80b13ad95",
+              "name": "The token is not permitted to access this device or resource.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "self",
+                    "devices",
+                    ":device_type",
+                    ":device_id",
+                    "air-data",
+                    "5-min-avg"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "desc",
+                      "value": "true"
+                    },
+                    {
+                      "key": "fahrenheit",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "device_type",
+                      "description": "(Required) Device model type (e.g. awair-element, awair-omni, awair-r2)."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "device_id",
+                      "description": "(Required) Numeric device identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ba1c0087-75f3-4fcc-b6c7-658a9ae6138a",
+              "name": "Device or resource not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "self",
+                    "devices",
+                    ":device_type",
+                    ":device_id",
+                    "air-data",
+                    "5-min-avg"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "desc",
+                      "value": "true"
+                    },
+                    {
+                      "key": "fahrenheit",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "device_type",
+                      "description": "(Required) Device model type (e.g. awair-element, awair-omni, awair-r2)."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "device_id",
+                      "description": "(Required) Numeric device identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ea79d56b-c660-43bc-83d7-0f3bdf66a3d2",
+              "name": "Per-device daily quota for this endpoint/tier has been exceeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "self",
+                    "devices",
+                    ":device_type",
+                    ":device_id",
+                    "air-data",
+                    "5-min-avg"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "desc",
+                      "value": "true"
+                    },
+                    {
+                      "key": "fahrenheit",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "device_type",
+                      "description": "(Required) Device model type (e.g. awair-element, awair-omni, awair-r2)."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "device_id",
+                      "description": "(Required) Numeric device identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "17ca63ec-d6c4-492a-bfd4-19f2f7f1d3e5",
+          "name": "Get 15-minute-average air-data",
+          "request": {
+            "name": "Get 15-minute-average air-data",
+            "description": {
+              "content": "Returns air-data averaged over 15-minute buckets. Maximum queryable window is 7 days.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users",
+                "self",
+                "devices",
+                ":device_type",
+                ":device_id",
+                "air-data",
+                "15-min-avg"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<dateTime>",
+                  "description": "Start of the time window (ISO 8601)."
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<dateTime>",
+                  "description": "End of the time window (ISO 8601)."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Maximum number of records to return (raw max 360)."
+                },
+                {
+                  "disabled": false,
+                  "key": "desc",
+                  "value": "true",
+                  "description": "Sort descending by timestamp (default true)."
+                },
+                {
+                  "disabled": false,
+                  "key": "fahrenheit",
+                  "value": "false",
+                  "description": "Return temperature in Fahrenheit instead of Celsius."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "device_type",
+                  "description": "(Required) Device model type (e.g. awair-element, awair-omni, awair-r2)."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "device_id",
+                  "description": "(Required) Numeric device identifier."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4425d27e-f8f9-468f-9894-2e102ac3e5d5",
+              "name": "15-minute-average air-data readings.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "self",
+                    "devices",
+                    ":device_type",
+                    ":device_id",
+                    "air-data",
+                    "15-min-avg"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "desc",
+                      "value": "true"
+                    },
+                    {
+                      "key": "fahrenheit",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "device_type",
+                      "description": "(Required) Device model type (e.g. awair-element, awair-omni, awair-r2)."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "device_id",
+                      "description": "(Required) Numeric device identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"timestamp\": \"2018-09-14T23:47:22.334Z\",\n      \"score\": 2097.9107938602483,\n      \"sensors\": [\n        {\n          \"comp\": \"string\",\n          \"value\": 7302.735007496765\n        },\n        {\n          \"comp\": \"string\",\n          \"value\": 6385.984416768098\n        }\n      ],\n      \"indices\": [\n        {\n          \"comp\": \"string\",\n          \"value\": 1162.443600937485\n        },\n        {\n          \"comp\": \"string\",\n          \"value\": 2898.27176855894\n        }\n      ]\n    },\n    {\n      \"timestamp\": \"1976-11-05T10:34:29.309Z\",\n      \"score\": 8860.358642160418,\n      \"sensors\": [\n        {\n          \"comp\": \"string\",\n          \"value\": 8205.610290815579\n        },\n        {\n          \"comp\": \"string\",\n          \"value\": 4595.250797679462\n        }\n      ],\n      \"indices\": [\n        {\n          \"comp\": \"string\",\n          \"value\": 791.9733586811018\n        },\n        {\n          \"comp\": \"string\",\n          \"value\": 1023.5648563268751\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3f018e43-95b5-4fd1-83e6-d9acfc92346d",
+              "name": "Missing or invalid access token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "self",
+                    "devices",
+                    ":device_type",
+                    ":device_id",
+                    "air-data",
+                    "15-min-avg"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "desc",
+                      "value": "true"
+                    },
+                    {
+                      "key": "fahrenheit",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "device_type",
+                      "description": "(Required) Device model type (e.g. awair-element, awair-omni, awair-r2)."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "device_id",
+                      "description": "(Required) Numeric device identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "921ee6b7-79b1-4857-89b5-3360a5b7eaaa",
+              "name": "The token is not permitted to access this device or resource.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "self",
+                    "devices",
+                    ":device_type",
+                    ":device_id",
+                    "air-data",
+                    "15-min-avg"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "desc",
+                      "value": "true"
+                    },
+                    {
+                      "key": "fahrenheit",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "device_type",
+                      "description": "(Required) Device model type (e.g. awair-element, awair-omni, awair-r2)."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "device_id",
+                      "description": "(Required) Numeric device identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f795824d-b05a-4dbd-b756-7e8df1aca068",
+              "name": "Device or resource not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "self",
+                    "devices",
+                    ":device_type",
+                    ":device_id",
+                    "air-data",
+                    "15-min-avg"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "desc",
+                      "value": "true"
+                    },
+                    {
+                      "key": "fahrenheit",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "device_type",
+                      "description": "(Required) Device model type (e.g. awair-element, awair-omni, awair-r2)."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "device_id",
+                      "description": "(Required) Numeric device identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "add1ab56-a26e-4c91-a41d-9301f471fb62",
+              "name": "Per-device daily quota for this endpoint/tier has been exceeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "self",
+                    "devices",
+                    ":device_type",
+                    ":device_id",
+                    "air-data",
+                    "15-min-avg"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "desc",
+                      "value": "true"
+                    },
+                    {
+                      "key": "fahrenheit",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "device_type",
+                      "description": "(Required) Device model type (e.g. awair-element, awair-omni, awair-r2)."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "device_id",
+                      "description": "(Required) Numeric device identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://developer-apis.awair.is/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "a9f07075-3e34-4e58-9d3c-ac768cf87926",
+    "name": "Awair Home & OAuth Developer Air Data API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Awair Home & OAuth Developer API (operated by Bitfinder, Inc., d/b/a Awair) gives developers, partners, and hobbyists programmatic access to Awair indoor air quality (IAQ) devices on behalf of Awair users. It exposes the authenticated user profile, the user's registered devices, and time-series air-data readings (Awair Score plus temperature, humidity, CO2, VOC, and PM2.5) at latest, raw, 5-minute-average, and 15-minute-average granularity. Requests are authorized with an OAuth 2.0 access token (or a Developer Console access token) presented as an HTTP Bearer token.\n\nContact Support:\n Name: Awair Developer Support\n Email: developer@getawair.com",
+      "type": "text/plain"
+    }
+  }
+}

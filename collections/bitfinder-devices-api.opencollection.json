@@ -1,0 +1,35 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Awair Home & OAuth Developer Air Data Devices API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Devices",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List the user's devices",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developer-apis.awair.is/v1/users/self/devices"
+          },
+          "docs": "Returns every Awair device registered to the authenticated user."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

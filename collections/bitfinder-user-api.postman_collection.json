@@ -1,0 +1,201 @@
+{
+  "item": [
+    {
+      "id": "ab75e393-0a85-45ac-ae73-6d71be2a859e",
+      "name": "User",
+      "description": {
+        "content": "Authenticated Awair user profile",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "52b79cb8-3f90-4911-9694-2e04bc03c1e3",
+          "name": "Get the authenticated user",
+          "request": {
+            "name": "Get the authenticated user",
+            "description": {
+              "content": "Returns profile and tier information for the user who owns the access token.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users",
+                "self"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "555cb342-7cc2-426e-ae73-98f7c56986f2",
+              "name": "The authenticated user's profile.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "self"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 8162,\n  \"email\": \"NQJpFhwSVqx8i@TsIAiXBd.gbph\",\n  \"firstName\": \"string\",\n  \"lastName\": \"string\",\n  \"tier\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b3388b84-9e89-4f47-a6ae-3b31bc5e3f72",
+              "name": "Missing or invalid access token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "self"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "bb0712fe-649f-4d88-a202-0bc8167f252a",
+              "name": "Per-device daily quota for this endpoint/tier has been exceeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "self"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://developer-apis.awair.is/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "4cbf7c86-691a-44f1-b2a1-70e496684e4f",
+    "name": "Awair Home & OAuth Developer Air Data User API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Awair Home & OAuth Developer API (operated by Bitfinder, Inc., d/b/a Awair) gives developers, partners, and hobbyists programmatic access to Awair indoor air quality (IAQ) devices on behalf of Awair users. It exposes the authenticated user profile, the user's registered devices, and time-series air-data readings (Awair Score plus temperature, humidity, CO2, VOC, and PM2.5) at latest, raw, 5-minute-average, and 15-minute-average granularity. Requests are authorized with an OAuth 2.0 access token (or a Developer Console access token) presented as an HTTP Bearer token.\n\nContact Support:\n Name: Awair Developer Support\n Email: developer@getawair.com",
+      "type": "text/plain"
+    }
+  }
+}

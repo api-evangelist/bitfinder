@@ -1,0 +1,220 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Awair Home & OAuth Developer Air Data API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Air Data",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get the latest air-data reading",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developer-apis.awair.is/v1/users/self/devices/:device_type/:device_id/air-data/latest",
+            "params": [
+              {
+                "name": "device_type",
+                "value": "",
+                "type": "path",
+                "description": "Device model type (e.g. awair-element, awair-omni, awair-r2)."
+              },
+              {
+                "name": "device_id",
+                "value": "",
+                "type": "path",
+                "description": "Numeric device identifier."
+              },
+              {
+                "name": "fahrenheit",
+                "value": "",
+                "type": "query",
+                "description": "Return temperature in Fahrenheit instead of Celsius."
+              }
+            ]
+          },
+          "docs": "Returns the most recent air-data sample for the device."
+        },
+        {
+          "info": {
+            "name": "Get raw (per-second) air-data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developer-apis.awair.is/v1/users/self/devices/:device_type/:device_id/air-data/raw",
+            "params": [
+              {
+                "name": "device_type",
+                "value": "",
+                "type": "path",
+                "description": "Device model type (e.g. awair-element, awair-omni, awair-r2)."
+              },
+              {
+                "name": "device_id",
+                "value": "",
+                "type": "path",
+                "description": "Numeric device identifier."
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Start of the time window (ISO 8601)."
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query",
+                "description": "End of the time window (ISO 8601)."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of records to return (raw max 360)."
+              },
+              {
+                "name": "desc",
+                "value": "",
+                "type": "query",
+                "description": "Sort descending by timestamp (default true)."
+              },
+              {
+                "name": "fahrenheit",
+                "value": "",
+                "type": "query",
+                "description": "Return temperature in Fahrenheit instead of Celsius."
+              }
+            ]
+          },
+          "docs": "Returns raw air-data samples. Maximum queryable window is 1 hour; up to 360 records per request."
+        },
+        {
+          "info": {
+            "name": "Get 5-minute-average air-data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developer-apis.awair.is/v1/users/self/devices/:device_type/:device_id/air-data/5-min-avg",
+            "params": [
+              {
+                "name": "device_type",
+                "value": "",
+                "type": "path",
+                "description": "Device model type (e.g. awair-element, awair-omni, awair-r2)."
+              },
+              {
+                "name": "device_id",
+                "value": "",
+                "type": "path",
+                "description": "Numeric device identifier."
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Start of the time window (ISO 8601)."
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query",
+                "description": "End of the time window (ISO 8601)."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of records to return (raw max 360)."
+              },
+              {
+                "name": "desc",
+                "value": "",
+                "type": "query",
+                "description": "Sort descending by timestamp (default true)."
+              },
+              {
+                "name": "fahrenheit",
+                "value": "",
+                "type": "query",
+                "description": "Return temperature in Fahrenheit instead of Celsius."
+              }
+            ]
+          },
+          "docs": "Returns air-data averaged over 5-minute buckets. Maximum queryable window is 24 hours."
+        },
+        {
+          "info": {
+            "name": "Get 15-minute-average air-data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developer-apis.awair.is/v1/users/self/devices/:device_type/:device_id/air-data/15-min-avg",
+            "params": [
+              {
+                "name": "device_type",
+                "value": "",
+                "type": "path",
+                "description": "Device model type (e.g. awair-element, awair-omni, awair-r2)."
+              },
+              {
+                "name": "device_id",
+                "value": "",
+                "type": "path",
+                "description": "Numeric device identifier."
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Start of the time window (ISO 8601)."
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query",
+                "description": "End of the time window (ISO 8601)."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of records to return (raw max 360)."
+              },
+              {
+                "name": "desc",
+                "value": "",
+                "type": "query",
+                "description": "Sort descending by timestamp (default true)."
+              },
+              {
+                "name": "fahrenheit",
+                "value": "",
+                "type": "query",
+                "description": "Return temperature in Fahrenheit instead of Celsius."
+              }
+            ]
+          },
+          "docs": "Returns air-data averaged over 15-minute buckets. Maximum queryable window is 7 days."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
