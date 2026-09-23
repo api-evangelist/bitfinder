@@ -1,8 +1,8 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Awair Home & OAuth Developer Air Data API
   version: v1
-  description: The Awair Home & OAuth Developer API (operated by Bitfinder, Inc., d/b/a Awair) gives developers, partners, and hobbyists programmatic access to Awair indoor air quality (IAQ) devices on behalf of Awair users. It exposes the authenticated user profile, the user's registered devices, and time-series air-data readings (Awair Score plus temperature, humidity, CO2, VOC, and PM2.5) at latest, raw, 5-minute-average, and 15-minute-average granularity. Requests are authorized with an OAuth 2.0 access token (or a Developer Console access token) presented as an HTTP Bearer token.
+  description: The Awair Home & OAuth Developer API (operated by Bitfinder, Inc., d/b/a Awair) gives developers, partners, and hobbyists programmatic access to Awair indoor air quality (IAQ) devices on behalf of Awair users.
   contact:
     name: Awair Developer Support
     email: developer@getawair.com
@@ -141,6 +141,13 @@ paths:
           $ref: '#/components/responses/QuotaExceeded'
 components:
   schemas:
+    AirDataResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/AirDataPoint'
     SensorReading:
       type: object
       properties:
@@ -167,36 +174,15 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/SensorReading'
-    AirDataResponse:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/AirDataPoint'
   parameters:
-    DeviceType:
-      name: device_type
-      in: path
-      required: true
-      description: Device model type (e.g. awair-element, awair-omni, awair-r2).
-      schema:
-        type: string
-    From:
-      name: from
+    Fahrenheit:
+      name: fahrenheit
       in: query
       required: false
-      description: Start of the time window (ISO 8601).
+      description: Return temperature in Fahrenheit instead of Celsius.
       schema:
-        type: string
-        format: date-time
-    Limit:
-      name: limit
-      in: query
-      required: false
-      description: Maximum number of records to return (raw max 360).
-      schema:
-        type: integer
+        type: boolean
+        default: false
     To:
       name: to
       in: query
@@ -212,14 +198,14 @@ components:
       description: Numeric device identifier.
       schema:
         type: integer
-    Fahrenheit:
-      name: fahrenheit
+    From:
+      name: from
       in: query
       required: false
-      description: Return temperature in Fahrenheit instead of Celsius.
+      description: Start of the time window (ISO 8601).
       schema:
-        type: boolean
-        default: false
+        type: string
+        format: date-time
     Desc:
       name: desc
       in: query
@@ -228,15 +214,29 @@ components:
       schema:
         type: boolean
         default: true
+    Limit:
+      name: limit
+      in: query
+      required: false
+      description: Maximum number of records to return (raw max 360).
+      schema:
+        type: integer
+    DeviceType:
+      name: device_type
+      in: path
+      required: true
+      description: Device model type (e.g. awair-element, awair-omni, awair-r2).
+      schema:
+        type: string
   responses:
     Unauthorized:
       description: Missing or invalid access token.
-    NotFound:
-      description: Device or resource not found.
     QuotaExceeded:
       description: Per-device daily quota for this endpoint/tier has been exceeded.
     Forbidden:
       description: The token is not permitted to access this device or resource.
+    NotFound:
+      description: Device or resource not found.
   securitySchemes:
     bearerAuth:
       type: http

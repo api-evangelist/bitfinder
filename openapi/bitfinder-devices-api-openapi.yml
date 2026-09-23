@@ -1,8 +1,8 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Awair Home & OAuth Developer Air Data Devices API
+  title: Awair Home & OAuth Developer Devices API
   version: v1
-  description: The Awair Home & OAuth Developer API (operated by Bitfinder, Inc., d/b/a Awair) gives developers, partners, and hobbyists programmatic access to Awair indoor air quality (IAQ) devices on behalf of Awair users. It exposes the authenticated user profile, the user's registered devices, and time-series air-data readings (Awair Score plus temperature, humidity, CO2, VOC, and PM2.5) at latest, raw, 5-minute-average, and 15-minute-average granularity. Requests are authorized with an OAuth 2.0 access token (or a Developer Console access token) presented as an HTTP Bearer token.
+  description: The Awair Home & OAuth Developer API (operated by Bitfinder, Inc., d/b/a Awair) gives developers, partners, and hobbyists programmatic access to Awair indoor air quality (IAQ) devices on behalf of Awair users.
   contact:
     name: Awair Developer Support
     email: developer@getawair.com
@@ -48,10 +48,10 @@ paths:
           $ref: '#/components/responses/QuotaExceeded'
 components:
   responses:
-    QuotaExceeded:
-      description: Per-device daily quota for this endpoint/tier has been exceeded.
     Unauthorized:
       description: Missing or invalid access token.
+    QuotaExceeded:
+      description: Per-device daily quota for this endpoint/tier has been exceeded.
   schemas:
     Device:
       type: object
