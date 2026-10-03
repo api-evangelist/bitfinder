@@ -141,6 +141,20 @@ paths:
           $ref: '#/components/responses/QuotaExceeded'
 components:
   parameters:
+    DeviceType:
+      name: device_type
+      in: path
+      required: true
+      description: Device model type (e.g. awair-element, awair-omni, awair-r2).
+      schema:
+        type: string
+    Limit:
+      name: limit
+      in: query
+      required: false
+      description: Maximum number of records to return (raw max 360).
+      schema:
+        type: integer
     Desc:
       name: desc
       in: query
@@ -157,28 +171,6 @@ components:
       schema:
         type: string
         format: date-time
-    To:
-      name: to
-      in: query
-      required: false
-      description: End of the time window (ISO 8601).
-      schema:
-        type: string
-        format: date-time
-    DeviceType:
-      name: device_type
-      in: path
-      required: true
-      description: Device model type (e.g. awair-element, awair-omni, awair-r2).
-      schema:
-        type: string
-    Limit:
-      name: limit
-      in: query
-      required: false
-      description: Maximum number of records to return (raw max 360).
-      schema:
-        type: integer
     Fahrenheit:
       name: fahrenheit
       in: query
@@ -187,6 +179,14 @@ components:
       schema:
         type: boolean
         default: false
+    To:
+      name: to
+      in: query
+      required: false
+      description: End of the time window (ISO 8601).
+      schema:
+        type: string
+        format: date-time
     DeviceId:
       name: device_id
       in: path
@@ -195,22 +195,15 @@ components:
       schema:
         type: integer
   responses:
-    QuotaExceeded:
-      description: Per-device daily quota for this endpoint/tier has been exceeded.
     Unauthorized:
       description: Missing or invalid access token.
     NotFound:
       description: Device or resource not found.
+    QuotaExceeded:
+      description: Per-device daily quota for this endpoint/tier has been exceeded.
     Forbidden:
       description: The token is not permitted to access this device or resource.
   schemas:
-    AirDataResponse:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/AirDataPoint'
     AirDataPoint:
       type: object
       description: A single air-data sample.
@@ -237,6 +230,13 @@ components:
           description: Component name (temp, humid, co2, voc, pm25).
         value:
           type: number
+    AirDataResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/AirDataPoint'
   securitySchemes:
     bearerAuth:
       type: http

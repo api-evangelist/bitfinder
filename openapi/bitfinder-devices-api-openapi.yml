@@ -75,10 +75,10 @@ components:
         timezone:
           type: string
   responses:
-    Unauthorized:
-      description: Missing or invalid access token.
     QuotaExceeded:
       description: Per-device daily quota for this endpoint/tier has been exceeded.
+    Unauthorized:
+      description: Missing or invalid access token.
   securitySchemes:
     bearerAuth:
       type: http

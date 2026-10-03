@@ -42,6 +42,11 @@ paths:
         '429':
           $ref: '#/components/responses/QuotaExceeded'
 components:
+  responses:
+    QuotaExceeded:
+      description: Per-device daily quota for this endpoint/tier has been exceeded.
+    Unauthorized:
+      description: Missing or invalid access token.
   schemas:
     User:
       type: object
@@ -59,11 +64,6 @@ components:
         tier:
           type: string
           description: Developer API access tier (e.g. Hobbyist).
-  responses:
-    Unauthorized:
-      description: Missing or invalid access token.
-    QuotaExceeded:
-      description: Per-device daily quota for this endpoint/tier has been exceeded.
   securitySchemes:
     bearerAuth:
       type: http
