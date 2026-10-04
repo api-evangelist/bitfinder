@@ -140,67 +140,13 @@ paths:
         '429':
           $ref: '#/components/responses/QuotaExceeded'
 components:
-  parameters:
-    DeviceType:
-      name: device_type
-      in: path
-      required: true
-      description: Device model type (e.g. awair-element, awair-omni, awair-r2).
-      schema:
-        type: string
-    Limit:
-      name: limit
-      in: query
-      required: false
-      description: Maximum number of records to return (raw max 360).
-      schema:
-        type: integer
-    Desc:
-      name: desc
-      in: query
-      required: false
-      description: Sort descending by timestamp (default true).
-      schema:
-        type: boolean
-        default: true
-    From:
-      name: from
-      in: query
-      required: false
-      description: Start of the time window (ISO 8601).
-      schema:
-        type: string
-        format: date-time
-    Fahrenheit:
-      name: fahrenheit
-      in: query
-      required: false
-      description: Return temperature in Fahrenheit instead of Celsius.
-      schema:
-        type: boolean
-        default: false
-    To:
-      name: to
-      in: query
-      required: false
-      description: End of the time window (ISO 8601).
-      schema:
-        type: string
-        format: date-time
-    DeviceId:
-      name: device_id
-      in: path
-      required: true
-      description: Numeric device identifier.
-      schema:
-        type: integer
   responses:
-    Unauthorized:
-      description: Missing or invalid access token.
     NotFound:
       description: Device or resource not found.
     QuotaExceeded:
       description: Per-device daily quota for this endpoint/tier has been exceeded.
+    Unauthorized:
+      description: Missing or invalid access token.
     Forbidden:
       description: The token is not permitted to access this device or resource.
   schemas:
@@ -222,6 +168,13 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/SensorReading'
+    AirDataResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/AirDataPoint'
     SensorReading:
       type: object
       properties:
@@ -230,13 +183,60 @@ components:
           description: Component name (temp, humid, co2, voc, pm25).
         value:
           type: number
-    AirDataResponse:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/AirDataPoint'
+  parameters:
+    Fahrenheit:
+      name: fahrenheit
+      in: query
+      required: false
+      description: Return temperature in Fahrenheit instead of Celsius.
+      schema:
+        type: boolean
+        default: false
+    DeviceType:
+      name: device_type
+      in: path
+      required: true
+      description: Device model type (e.g. awair-element, awair-omni, awair-r2).
+      schema:
+        type: string
+    Desc:
+      name: desc
+      in: query
+      required: false
+      description: Sort descending by timestamp (default true).
+      schema:
+        type: boolean
+        default: true
+    Limit:
+      name: limit
+      in: query
+      required: false
+      description: Maximum number of records to return (raw max 360).
+      schema:
+        type: integer
+    From:
+      name: from
+      in: query
+      required: false
+      description: Start of the time window (ISO 8601).
+      schema:
+        type: string
+        format: date-time
+    To:
+      name: to
+      in: query
+      required: false
+      description: End of the time window (ISO 8601).
+      schema:
+        type: string
+        format: date-time
+    DeviceId:
+      name: device_id
+      in: path
+      required: true
+      description: Numeric device identifier.
+      schema:
+        type: integer
   securitySchemes:
     bearerAuth:
       type: http
