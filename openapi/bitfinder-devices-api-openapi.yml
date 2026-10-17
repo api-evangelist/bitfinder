@@ -48,10 +48,10 @@ paths:
           $ref: '#/components/responses/QuotaExceeded'
 components:
   responses:
-    QuotaExceeded:
-      description: Per-device daily quota for this endpoint/tier has been exceeded.
     Unauthorized:
       description: Missing or invalid access token.
+    QuotaExceeded:
+      description: Per-device daily quota for this endpoint/tier has been exceeded.
   schemas:
     Device:
       type: object
